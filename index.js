@@ -1,5 +1,5 @@
 const categoryRoutes = require("./routes/categories.route") ;
-require("./configs/server.config") ;
+require("./config/server.config") ;
 const express = require('express');
 const app = express() ;
 
