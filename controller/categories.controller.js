@@ -16,6 +16,7 @@ const getCategories = async function(req ,res){
 }
 
 const  createCategories = async function(req ,res){
+    console.log(req.body) ;
     const response = await createCategory(req.body) ;
     res.json({
         message: "category created" ,

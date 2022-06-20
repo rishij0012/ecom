@@ -1,5 +1,6 @@
 const categoryRoutes = require("./routes/categories.route") ;
 const productsRoute = require("./routes/products.routes") ;
+const authRoutes = require("./routes/user.routes") ;
 require("./config/server.config") ;
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -15,6 +16,7 @@ app.use(bodyParser.json()) ;
 
 categoryRoutes(app) ;
 productsRoute(app) ;
+authRoutes(app) ;
 
 app.get("/" , function(req , res){
     console.log("here is the home") ;

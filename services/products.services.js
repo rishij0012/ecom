@@ -1,8 +1,12 @@
 const Products = require("../models/index").products ;
 const Categories = require("../models/index").categories ;
 
-const getProducts = async () => {
-    const allProducts = await Products.findAll({include: Categories}) ;
+const getProducts = async (filter) => {
+    let products ;
+    // if(!filter.category_id && !filter.maxPrice && !filter.minPrice ){
+        allProducts = await Products.findAll({include: Categories}) ;
+    // }
+
     return allProducts ;
 }
 
