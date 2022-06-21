@@ -6,6 +6,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express() ;
 
+const db = require("./models/index").sequelize ;
+
 const port = process.env.PORT || 3001 ; // what is "process" : global variable/object having info of current process 
                                         // i guess nodeJS 
 // module : GLOBAL variable having info of all module and data 
@@ -25,4 +27,5 @@ app.get("/" , function(req , res){
 
 app.listen(port , function(req , res){
     console.log("here is the express, started at port : " , port) ;
+    db.sync() ;
 });

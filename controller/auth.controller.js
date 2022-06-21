@@ -16,6 +16,33 @@ const signUp = async function(req , res){
     })
 }
 
+const signIn = async function(req , res){
+    const user = await auth.getUser(req.body.email) ;
+    if(!user){
+        return res.json({
+            status: 404 ,
+            success: false ,
+            message: "unable to find the user account" ,
+        });
+    }
+
+    if(!auth.checkPassword(req.body.password , user.password)){
+        return res.json({
+            status: 404 ,
+            success: false ,
+            message: "Incorrect password" ,
+        });
+    }
+    const token = auth.createToken(user) ;
+    return res.json({
+        status: 200 ,
+        success: true ,
+        message: "successfully logedIn to System" ,
+        data: token ,
+    });
+}
+
 module.exports = {
     signUp ,
+    signIn ,
 }
